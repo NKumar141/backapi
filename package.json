@@ -1,0 +1,26 @@
+{
+  "name": "maxgoogle",
+  "version": "1.0.0",
+  "description": "google search",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UtKarsH7676/Maxeff-s_Crew.git"
+  },
+  "author": "Maxeff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UtKarsH7676/Maxeff-s_Crew/issues"
+  },
+  "homepage": "https://github.com/UtKarsH7676/Maxeff-s_Crew#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "engines":{
+"node": "18.4.0"
+  }
+}
