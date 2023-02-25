@@ -1,9 +1,9 @@
 import sys
 import os
 
-# os.system('pip install google')
-# os.system('pip install googlesearch-python')
-# os.system('pip install beautifulsoup4')
+os.system('pip install google')
+os.system('pip install googlesearch-python')
+os.system('pip install beautifulsoup4')
 from googlesearch import search
 import json
 print(sys.argv[0])
