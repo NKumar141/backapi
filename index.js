@@ -7,11 +7,11 @@ const port = process.env.port || 3000;
 const { PythonShell } = require("python-shell");
 let options = {
   scriptPath: "",
-  args: ["wwe"],
+  args: "wwe",
 };
 PythonShell.run("python.py", options, (err, result) => {
   if (err) console.log(err);
-  if (res) console.log(res);
+  if (result) console.log(result);
 });
 
 app.use(cors());
@@ -27,7 +27,7 @@ app.get("/ram", (req, res) => {
   let a = req.query.a;
   console.log(a);
   options.args = [a];
-  PythonShell.run("python.py", options, (err, result) => {
+  PythonShell.run("python.py", options, (err, res) => {
     if (err) console.log(err);
     if (res) console.log(res);
   });
