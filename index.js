@@ -36,21 +36,13 @@ app.get("/am", async (req, res) => {
     if (err) {
       console.log(err);
     }
-    // if (res) {
-    //   console.log(res, " bhavesh");
-    // }
-    console.log("hii12");
   });
 
-  // let apidata2 = require("./data.json");
-  // console.log(apidata2);
-  // temp();
   const apidata2 = require("./data.json");
   // console.log(apidata2);
   // res.sent(`/am?a=${a}`);
   res.send(apidata2);
 });
-const temp = () => {};
 
 app.get("/service", (req, res) => {
   res.send(apidata);
