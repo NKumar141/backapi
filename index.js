@@ -31,16 +31,9 @@ app.get("/am", async (req, res) => {
   const a = req.query.a;
   // console.log(a);
   options.args[0] = a;
-  console.log("hii");
-  await PythonShell.run("python.py", options, (err) => {
-    if (err) {
-      console.log(err);
-    }
-  });
+  await PythonShell.run("python.py", options, (err) => {});
 
-  const apidata2 = require("./data.json");
-  // console.log(apidata2);
-  // res.sent(`/am?a=${a}`);
+  apidata2 = require("./data.json");
   res.send(apidata2);
 });
 

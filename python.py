@@ -11,7 +11,7 @@ a=[]
 # to search
 # query = sys.argv[1]
 
-for j in search(query, tld="co.in", num=10, stop=10, pause=1):
+for j in search(query, tld="co.in", num=10, stop=10, pause=2):
 	print(j)
 	a.append(j)
 	
