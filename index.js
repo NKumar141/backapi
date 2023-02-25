@@ -22,16 +22,18 @@ const { url } = require("inspector");
 app.get("/", (req, res) => {
   res.send("Hello i am live");
 });
+
 app.get("/ram", (req, res) => {
   let a = req.query.a;
   console.log(a);
-  options.args = a;
+  options.args = [a];
   PythonShell.run("python.py", options, (err, result) => {
     if (err) console.log(err);
     if (res) console.log(res);
   });
   res.send(apidata);
 });
+
 app.get("/service", (req, res) => {
   res.send(apidata);
 });
