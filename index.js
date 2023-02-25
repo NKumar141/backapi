@@ -16,7 +16,7 @@ PythonShell.run("python.py", options, (err, result) => {
 
 app.use(cors());
 
-const apidata = require("./data.json");
+var apidata = require("./data.json");
 const { url } = require("inspector");
 
 app.get("/", (req, res) => {
