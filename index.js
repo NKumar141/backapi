@@ -7,7 +7,7 @@ const port = process.env.port || 3000;
 const { PythonShell } = require("python-shell");
 let options = {
   scriptPath: "",
-  args: "wwe",
+  args: ["wwe"],
 };
 PythonShell.run("python.py", options, (err, result) => {
   if (err) console.log(err);
