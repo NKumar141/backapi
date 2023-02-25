@@ -31,6 +31,7 @@ app.get("/ram", (req, res) => {
     if (err) console.log(err);
     if (res) console.log(res);
   });
+  apidata = require("./data.json");
   res.send(apidata);
 });
 
