@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 app.get("/ram", (req, res) => {
   let a = req.query.a;
   console.log(a);
-  options.args = [a];
+  options.args[0] = a;
   PythonShell.run("python.py", options, (err, res) => {
     if (err) console.log(err);
     if (res) console.log(res);
