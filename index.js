@@ -3,37 +3,77 @@ const cors = require("cors");
 const http = require("http");
 
 const app = express();
+app.use(express.json());
+app.use(cors());
 const port = process.env.port || 3000;
 const { PythonShell } = require("python-shell");
-let options = {
+const options = {
   scriptPath: "",
   args: ["wwe"],
 };
-PythonShell.run("python.py", options, (err, result) => {
-  if (err) console.log(err);
-  if (result) console.log(result);
-});
+// PythonShell.run("py.py", options, (err, result) => {
+//   if (err) console.log(err);
+//   if (result) console.log(result);
+// });
+// PythonShell.run("python.py", options, (err, result) => {
+//   if (err) console.log(err);
+//   if (result) console.log(result);
+// });
 
-app.use(cors());
-
-var apidata = require("./data.json");
+//var apidata = require("./data.json");
 const { url } = require("inspector");
 
 app.get("/", (req, res) => {
   res.send("Hello i am live");
 });
 
-app.get("/ram", (req, res) => {
-  let a = req.query.a;
-  console.log(a);
+app.get("/ram", async (req, res) => {
+  const a = req.query.a;
+  // console.log(a);
   options.args[0] = a;
-  PythonShell.run("python.py", options, (err, res) => {
-    if (err) console.log(err);
-    if (res) console.log(res);
+  console.log("hii");
+  await PythonShell.run("python.py", options, (err) => {
+    if (err) {
+      console.log(err);
+    }
+    // if (res) {
+    //   console.log(res, " bhavesh");
+    // }
+    console.log("hii12");
   });
-  apidata = require("./data.json");
-  res.send(apidata);
+
+  // let apidata2 = require("./data.json");
+  // console.log(apidata2);
+  temp();
+
+  // res.redirect(`/am?a=${a}`);
+  res.send("apidata2");
 });
+
+app.get("/am", async (req, res) => {
+  const a = req.query.a;
+  // console.log(a);
+  options.args[0] = a;
+  console.log("hii");
+  await PythonShell.run("python.py", options, (err) => {
+    if (err) {
+      console.log(err);
+    }
+    // if (res) {
+    //   console.log(res, " bhavesh");
+    // }
+    console.log("hii12");
+  });
+
+  // let apidata2 = require("./data.json");
+  // console.log(apidata2);
+  // temp();
+  const apidata2 = require("./data.json");
+  // console.log(apidata2);
+  // res.sent(`/am?a=${a}`);
+  res.send(apidata2);
+});
+const temp = () => {};
 
 app.get("/service", (req, res) => {
   res.send(apidata);

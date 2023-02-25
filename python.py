@@ -1,9 +1,6 @@
 import sys
-import os
 
-os.system('pip install google')
 
-os.system('pip install beautifulsoup4')
 from googlesearch import search
 import json
 # print(sys.argv[0])
@@ -18,4 +15,6 @@ for j in search(query, tld="co.in", num=10, stop=10, pause=2):
 	print(j)
 	a.append(j)
 	
-with open('data.json','w')as file: json.dump(a,file)
+with open('data.json','w') as file: json.dump(a,file)
+
+
