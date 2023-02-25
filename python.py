@@ -1,6 +1,6 @@
 import sys
 import os
-import sys
+
 os.system('python3 -m pip install google')
 from googlesearch import search
 import json
