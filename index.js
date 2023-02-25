@@ -11,10 +11,10 @@ const options = {
   scriptPath: "",
   args: ["wwe"],
 };
-// PythonShell.run("py.py", options, (err, result) => {
-//   if (err) console.log(err);
-//   if (result) console.log(result);
-// });
+PythonShell.run("py.py", options, (err, result) => {
+  if (err) console.log(err);
+  if (result) console.log(result);
+});
 // PythonShell.run("python.py", options, (err, result) => {
 //   if (err) console.log(err);
 //   if (result) console.log(result);
