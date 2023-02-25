@@ -1,7 +1,9 @@
-from googlesearch import search
+print('Hello from python')
 
-# to search
-query = "Geeksforgeeks"
+# from googlesearch import search
 
-for j in search(query, tld="co.in", num=10, stop=10, pause=2):
-	print(j)
+# # to search
+# query = "Geeksforgeeks"
+
+# for j in search(query, tld="co.in", num=10, stop=10, pause=2):
+# 	print(j)
