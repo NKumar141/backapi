@@ -12,7 +12,7 @@ const apidata = require("./data.json");
 app.get("/", (req, res) => {
   res.send("Hello i am live");
 });
-app.get("/service", () => {
+app.get("/service", (req, res) => {
   res.send(apidata);
 });
 app.listen(port, () => {
