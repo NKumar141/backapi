@@ -27,29 +27,6 @@ app.get("/", (req, res) => {
   res.send("Hello i am live");
 });
 
-app.get("/ram", async (req, res) => {
-  const a = req.query.a;
-  // console.log(a);
-  options.args[0] = a;
-  console.log("hii");
-  await PythonShell.run("python.py", options, (err) => {
-    if (err) {
-      console.log(err);
-    }
-    // if (res) {
-    //   console.log(res, " bhavesh");
-    // }
-    console.log("hii12");
-  });
-
-  // let apidata2 = require("./data.json");
-  // console.log(apidata2);
-  temp();
-
-  // res.redirect(`/am?a=${a}`);
-  res.send("apidata2");
-});
-
 app.get("/am", async (req, res) => {
   const a = req.query.a;
   // console.log(a);
