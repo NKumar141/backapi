@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const http = require("http");
+const fs = require("fs");
 
 const app = express();
 app.use(express.json());
@@ -29,12 +30,18 @@ app.get("/", (req, res) => {
 
 app.get("/am", async (req, res) => {
   const a = req.query.a;
-  // console.log(a);
+  console.log(a);
+  const getFile = async () => {
+    return JSON.parse(fs.readFileSync("./data.json"));
+  };
   options.args[0] = a;
+  const before = await getFile();
   await PythonShell.run("python.py", options, (err) => {});
 
-  apidata2 = require("./data.json");
-  res.send(apidata2);
+  const after = await getFile(); //await require("./data.json"); //console.log(getFile());
+
+  //let apidata2 = require("./data.json");
+  res.send(await getFile());
 });
 
 app.get("/service", (req, res) => {
