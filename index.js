@@ -8,14 +8,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 const port = process.env.port || 3000;
-
 const { url } = require("inspector");
-
-app.get("/", (req, res) => {
-  res.send("Hello i am live");
-});
-
-app.get("/am", async (req, res) => {
+app.get("/", async (req, res) => {
   const a = req.query.a;
   console.log(a);
   const getFile = async () => {
