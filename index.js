@@ -2,26 +2,13 @@ const express = require("express");
 const cors = require("cors");
 const http = require("http");
 const fs = require("fs");
+const searchGoogle = require("./searchGoogle");
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 const port = process.env.port || 3000;
-const { PythonShell } = require("python-shell");
-const options = {
-  scriptPath: "",
-  args: ["wwe"],
-};
-PythonShell.run("py.py", options, (err, result) => {
-  if (err) console.log(err);
-  if (result) console.log(result);
-});
-// PythonShell.run("python.py", options, (err, result) => {
-//   if (err) console.log(err);
-//   if (result) console.log(result);
-// });
 
-//var apidata = require("./data.json");
 const { url } = require("inspector");
 
 app.get("/", (req, res) => {
@@ -34,14 +21,18 @@ app.get("/am", async (req, res) => {
   const getFile = async () => {
     return JSON.parse(fs.readFileSync("./data.json"));
   };
-  options.args[0] = a;
-  const before = await getFile();
-  await PythonShell.run("python.py", options, (err) => {});
+  async function main() {
+    const links = await searchGoogle(a);
+    res.send(links);
+    console.log(links);
+    // fs.writeFile(filePath, JSON.stringify(data), (err) => {
+    //   if (err) throw err;
+    //   console.log('Data written to file');
+    // });
+  }
 
-  const after = await getFile(); //await require("./data.json"); //console.log(getFile());
-
-  //let apidata2 = require("./data.json");
-  res.send(await getFile());
+  main();
+  //res.send(await getFile());
 });
 
 app.get("/service", (req, res) => {
