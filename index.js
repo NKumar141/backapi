@@ -15,7 +15,7 @@ app.get("/", async (req, res) => {
   //   return JSON.parse(fs.readFileSync("./data.json"));
   // };
   async function main() {
-    const links = await searchGoogle(a);
+    const links = await searchGoogle(queryText);
     res.send(links);
     console.log(links);
     // fs.writeFile(filePath, JSON.stringify(data), (err) => {
