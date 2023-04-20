@@ -10,11 +10,10 @@ app.use(cors());
 const port = process.env.port || 3000;
 const { url } = require("inspector");
 app.get("/", async (req, res) => {
-  const a = req.query.a;
-  console.log(a);
-  const getFile = async () => {
-    return JSON.parse(fs.readFileSync("./data.json"));
-  };
+  const queryText = req.query.queryText;
+  // const getFile = async () => {
+  //   return JSON.parse(fs.readFileSync("./data.json"));
+  // };
   async function main() {
     const links = await searchGoogle(a);
     res.send(links);
@@ -27,10 +26,6 @@ app.get("/", async (req, res) => {
 
   main();
   //res.send(await getFile());
-});
-
-app.get("/service", (req, res) => {
-  res.send(apidata);
 });
 app.listen(port, () => {
   console.log("i am live again");
