@@ -13,8 +13,8 @@ var x = 0;
 let y = 0;
 
 app.get("/IOTstatus", async (req, res) => {
-  res.send(x);
-  res.send(y);
+  res.send({ value: x });
+  res.send({ value: y });
 });
 
 app.get("/IOT", async (req, res) => {
