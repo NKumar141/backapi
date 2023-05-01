@@ -9,6 +9,20 @@ app.use(express.json());
 app.use(cors());
 const port = process.env.port || 3000;
 const { url } = require("inspector");
+var x = 0;
+let y = 0;
+
+app.get("/", async (req, res) => {
+  res.send(x);
+  res.send(y);
+});
+
+app.get("/IOT", async (req, res) => {
+  const t = req.query.t;
+  x = t;
+  y = t;
+});
+
 app.get("/", async (req, res) => {
   const queryText = req.query.queryText;
   // const getFile = async () => {
