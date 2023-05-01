@@ -12,7 +12,7 @@ const { url } = require("inspector");
 var x = 0;
 let y = 0;
 
-app.get("/", async (req, res) => {
+app.get("/IOTstatus", async (req, res) => {
   res.send(x);
   res.send(y);
 });
